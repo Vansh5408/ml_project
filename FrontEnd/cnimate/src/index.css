@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #111;
+}
+input, button {
+  font-family: inherit;
+  font-size: 14px;
+}
