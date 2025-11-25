@@ -2,9 +2,10 @@ fastapi
 uvicorn[standard]
 pydantic
 pandas
+numpy
 faiss-cpu
 sentence-transformers
-langchain
-langchain-community
+requests
+python-dotenv
 requests
 python-dotenv

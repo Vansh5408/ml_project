@@ -14,12 +14,15 @@ const MovieRecommender = () => {
     setMovies([]);
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/recommend", { query });
+      const base = import.meta.env.VITE_API_BASE || "http://127.0.0.1:8001";
+      const res = await axios.post(`${base}/recommend`, { query });
       setRecommendation(res.data.recommendation);
       setMovies(res.data.movies || []);
     } catch (err) {
       console.error(err);
-      setRecommendation("Error fetching recommendation.");
+      // show backend error message when available for easier debugging
+      const backendMsg = err?.response?.data || err?.message || "Error fetching recommendation.";
+      setRecommendation(typeof backendMsg === "string" ? backendMsg : JSON.stringify(backendMsg));
     }
   };
 

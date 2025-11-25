@@ -8,7 +8,8 @@ const MovieRow = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const res = await axios.get("http://127.0.0.1:8000/random?n=10");
+        const base = import.meta.env.VITE_API_BASE || "http://127.0.0.1:8001";
+        const res = await axios.get(`${base}/random?n=10`);
         setMovies(res.data.movies);
       } catch (error) {
         console.error("Error fetching movies:", error);

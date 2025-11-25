@@ -8,7 +8,8 @@ const HeroBanner = () => {
   useEffect(() => {
     const fetchRandomMovie = async () => {
       try {
-        const res = await axios.get("http://127.0.0.1:8000/random?n=1");
+        const base = import.meta.env.VITE_API_BASE || "http://127.0.0.1:8001";
+        const res = await axios.get(`${base}/random?n=1`);
         setFeaturedMovie(res.data.movies[0]);
       } catch (error) {
         console.error("Error fetching featured movie:", error);
