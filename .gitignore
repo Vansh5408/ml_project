@@ -201,3 +201,8 @@
 # pip-selfcheck.json
 
 # # End of https://www.toptal.com/developers/gitignore/api/react,python,venv
+
+# Prevent committing runtime env files
+/Backend/.env
+/FrontEnd/cnimate/.env
+.env
